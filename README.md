@@ -7,3 +7,5 @@ All you need to run is to call
 ```
 mvn spring-boot:run
 ```
+
+To configure database, all you need to do is change the information in the application.properties file.
