@@ -14,7 +14,7 @@
 # most recent version of that image when you build your Dockerfile.
 # If reproducability is important, consider using a versioned tag
 # (e.g., alpine:3.17.2) or SHA (e.g., alpine@sha256:c41ab5c992deb4fe7e5da09f67a8804a46bd0592bfdf0b1847dde0e0889d2bff).
-FROM maven:3.8.5-openjdk-17 as base
+FROM eclipse-temurin:17-jdk-focal as base
 
 ################################################################################
 # Create a stage for building/compiling the application.
@@ -28,7 +28,7 @@ FROM base as build
 WORKDIR /DemoCNPJ
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
+COPY src ./src 
 RUN ./mvnw dependency:go-offline
 
-COPY src ./src
 CMD ["./mvnw", "spring-boot:run"]
