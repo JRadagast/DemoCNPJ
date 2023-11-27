@@ -26,8 +26,7 @@ FROM maven:3.8.5-openjdk-17 as base
 # the Awesome Compose repository: https://github.com/docker/awesome-compose
 FROM base as build
 WORKDIR /DemoCNPJ
-COPY .mvn/ ./mvn
-COPY mvnw pom.xml ./
+COPY . .
 RUN ./mvnw clean install
 
 COPY src ./src
