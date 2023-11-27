@@ -27,7 +27,7 @@ FROM maven:3.8.5-openjdk-17 as base
 FROM base as build
 WORKDIR /DemoCNPJ
 COPY . .
-RUN ./mvnw clean install
+RUN ./mvnw dependency:go-offline
 
 COPY src ./src
 CMD ["./mvnw", "spring-boot:run"]
