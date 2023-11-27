@@ -28,7 +28,6 @@ FROM base as build
 WORKDIR /DemoCNPJ
 COPY .mvn/ ./mvn
 COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
 RUN ./mvnw clean install
 
 COPY src ./src
